@@ -1,4 +1,4 @@
-# ASCII Routing Donuts
+# ASCII Rotating Donuts
 
 #### I found interesting video on Youtube:
 https://www.youtube.com/watch?v=sW9npZVpiMI
@@ -11,7 +11,7 @@ This followed me to the coolest code:
 <br/>
 ![Alt text](media/donut-jpg.jpg?raw=true "Donut")
 
-#### And I just copied and translate it to other programming languages...
+#### And I just copied and translated it to other programming languages...
 
 And WATCH this gif (I have run it on Node.js):
 <br/>
@@ -21,14 +21,36 @@ And WATCH this gif (I have run it on Node.js):
 ### Technical Side:
 | Language | Version |
 | --- | --- |
+| gcc (C Compiler) | 9.2.0 |
+| java | 1.8.0 |
 | Node.js | 14.16.0 |
 | Python | 3.9.1 |
 
 ### Run Code
+Example:
+Compile *donut.c* with gcc
 ```sh
-python donut.py
+gcc donut.c
 ```
-or
+and run *.exe* file
+<br/>
+**or**
+<br/>
+Compile *Donut.java* with javac
+```sh
+javac Donut.java
+```
+and run *.class* file
+<br/>
+**or**
+<br/>
+Run for Node.js
 ```sh
 node donut.js
+```
+**or**
+<br/>
+Run for Python
+```sh
+python donut.py
 ```
