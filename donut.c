@@ -18,12 +18,14 @@ int main() {
     float A = 0, B = 0, i, j, loop_end;
     float z[ARRAY_SIZE];
     char b[ARRAY_SIZE];
-    int k;
+    char output[ARRAY_SIZE + 2];
+
+    output[ARRAY_SIZE + 1] = '\0';
 
     loop_end = 6.28;
 
     clear_console();
-    while(1) {
+    while(0 == 0) {
         memset(b, (int)' ', ARRAY_SIZE);
         memset(z, 0, 4*ARRAY_SIZE);
         for(j = 0; j < loop_end; j += 0.07) {
@@ -59,9 +61,12 @@ int main() {
         }
 
         clear_console();
-        for (k = 0; k <= ARRAY_SIZE; k++) {
-            printf("%c", k % 80 ? b[k] : 10);
+
+        for (int k = 0; k <= ARRAY_SIZE; k++) {
+            output[k] = ((k % 80 > 0)? b[k] : '\n');
         }
+
+        printf("%s", output);
 
         A += 0.04;
         B += 0.02;

@@ -32,6 +32,10 @@ Compile *donut.c* with gcc
 ```sh
 gcc donut.c
 ```
+or
+```sh
+gcc donut.c -lm
+```
 and run *.exe* file
 <br/>
 **or**

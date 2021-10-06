@@ -63,8 +63,12 @@ def main():
 
         clear_console()
 
+        output = ""
+
         for k in range(list_size + 1):
-            print(chars_list[k] if k % 80 != 0 else "\n", end="")
+            output += chars_list[k] if k % 80 != 0 else "\n"
+        
+        print(output)
 
         A += 0.04
         B += 0.02
