@@ -1,4 +1,4 @@
-(function() {
+(async function() {
     const ARRAY_SIZE = 1760;
     const CHARS = ".,-~:;=!*#$@";
 
@@ -11,6 +11,10 @@
     let loopEnd = 6.28;
     let charArray = new Array(ARRAY_SIZE);
     let numsArray = new Array(ARRAY_SIZE);
+
+    function sleep(ms) {
+        return new Promise(resolve => setTimeout(resolve, ms))
+    }
 
     async function drawDoughnut() {
         for(let j = 0; j < loopEnd; j += 0.07) {
@@ -43,25 +47,20 @@
             }
         }
 
-        console.clear();
-
-        let output = "";
-        for(let k = 0; k<=ARRAY_SIZE; k++) {
-            if(k % 80 == 0) {
-                console.log(output);
-                output = "";
-            } else {
-                output += charArray[k];
-            }
+        const output = [];
+        for(let k = 0; k <= ARRAY_SIZE; k++) {
+            output.push((k % 80 == 0)? "\n": charArray[k]);
         }
+        console.log(output.join(""))
     }
 
-    console.clear();
     while(true) {
         charArray.fill(" ");
         numsArray.fill(0);
 
+        console.clear();
         drawDoughnut();
+        await sleep(40);
 
         A += 0.04
         B += 0.02

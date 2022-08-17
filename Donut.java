@@ -31,12 +31,10 @@ class Donut {
     }
 
     public static void main(String[] args) {
-        PrintStream out = System.out;
-
         double A = 0, B = 0, i, j, loop_end;
         double[] z = new double[ARRAY_SIZE];
         char[] b = new char[ARRAY_SIZE];
-        int k;
+        StringBuilder builder = new StringBuilder(ARRAY_SIZE + 1);
 
         loop_end = 6.28;
 
@@ -76,13 +74,22 @@ class Donut {
                 }
             }
 
-            clearConsole();
-            for (k = 0; k <= ARRAY_SIZE; k++) {
-                out.print((k % 80 != 0) ? b[k] : 10);
+            for (int k = 0; k <= ARRAY_SIZE; k++) {
+                builder.append((k % 80 != 0) ? b[k] : (char) 10);
             }
+            clearConsole();
+            System.out.print(builder);
+            builder.setLength(0);
 
             A += 0.04;
             B += 0.02;
+
+            try {
+                Thread.sleep(40);
+            } catch(InterruptedException ignored) {
+                break;
+            }
         }
     }
+
 }

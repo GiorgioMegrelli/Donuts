@@ -1,7 +1,8 @@
-from math import sin, cos
+import os
+import sys
+from math import cos, sin
 from platform import system
 from subprocess import Popen
-
 
 WINDOWS_NAME = "windows"
 WINDOWS_COMMAND = "cls"
@@ -47,12 +48,15 @@ def main():
                 x = int(40 + 30 * mess * (cosi * cosj2 * cosB - t * sinB))
                 y = int(12 + 15 * mess * (cosi * cosj2 * sinB + t * cosB))
                 o = int(x + 80 * y)
-                N = int(8 * (
+                N = int(
+                    8
+                    * (
                         (sinj * sinA - sini * cosj * cosA) * cosB
                         - sini * cosj * sinA
                         - sinj * cosA
                         - cosi * cosj * sinB
-                ))
+                    )
+                )
 
                 if 22 > y and y > 0 and x > 0 and 80 > x and mess > nums_list[o]:
                     nums_list[o] = mess
@@ -63,16 +67,21 @@ def main():
 
         clear_console()
 
-        output = ""
-
-        for k in range(list_size + 1):
-            output += chars_list[k] if k % 80 != 0 else "\n"
-        
-        print(output)
+        print(
+            "".join(
+                chars_list[k] if k % 80 != 0 else "\n" for k in range(list_size + 1)
+            )
+        )
 
         A += 0.04
         B += 0.02
 
 
 if __name__ == "__main__":
-    main()
+    try:
+        main()
+    except KeyboardInterrupt:
+        try:
+            sys.exit(0)
+        except SystemExit:
+            os._exit(0)
